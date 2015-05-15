@@ -10,16 +10,50 @@
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
+//            'home' => array(
+//                'type' => 'Zend\Mvc\Router\Http\Literal',
+//                'options' => array(
+//                    'route'    => '/',
+//                    'defaults' => array(
+//                        'controller' => 'Application\Controller\Quienessomos',
+//                        'action'     => 'index',
+//                    ),
+//                ),
+//            ),
+  
+              'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Application\Controller\Quienessomos',
                         'action'     => 'index',
                     ),
                 ),
             ),
+             /*------------------------------------------------*/
+                      'fotos' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/fotos',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Quienessomos',
+                        'action'     => 'fotos',
+                    ),
+                ),
+            ),
+            /*-------------------------------------------------*/
+                       'musica' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/musica',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Quienessomos',
+                        'action'     => 'musica',
+                    ),
+                ),
+            ),
+            /*-------------------------------------------------*/
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -39,10 +73,12 @@ return array(
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
+                           // 'route'    => '/[:controller[/:action]]',
+                            'route'    => '[:action[/:id]]',
                             'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                               // 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'         => '[0-9]*'
                             ),
                             'defaults' => array(
                             ),
