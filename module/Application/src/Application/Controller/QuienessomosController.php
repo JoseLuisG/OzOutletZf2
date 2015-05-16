@@ -28,7 +28,7 @@ class QuienessomosController extends AbstractActionController
         $id = (int)$this->params()->fromRoute("id", 1);
         $imagenes = imagenes($id);
         $count_imagenes = count_imagenes(2);
- 
+        $this->layout("layout/nuevo-layout.phtml");
         return new ViewModel(array(
             "interactua_php" => $parametro, 
     
